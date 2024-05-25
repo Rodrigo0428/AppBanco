@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using AppBanco.Data;
 //DRIVER de conexion 
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+//using Microsoft.OpenApi.Models;
+//using AppBanco.Service;
+using AppBanco.Integration.jsonplaceholder;
+using AppBanco.Integration.currencyexchange;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +20,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddScoped<JsonplaceholderApiIntegration, JsonplaceholderApiIntegration>();
 
 builder.Services.AddSession(options =>
 {
