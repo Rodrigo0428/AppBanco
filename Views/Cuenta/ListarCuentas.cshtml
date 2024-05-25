@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AppBanco.Models.Cuenta>
+
+@{
+    ViewData["Title"] = "Listado de Cuentas Bancarias";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre del Titular</th>
+            <th>Tipo de Cuenta</th>
+            <th>Saldo</th>
+            <th>Correo Electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuenta in Model)
+        {
+            <tr>
+                <td>@cuenta.NombreTitular</td>
+                <td>@cuenta.TipoCuenta</td>
+                <td>@cuenta.Saldo</td>
+                <td>@cuenta.correo</td>
+            </tr>
+        }
+    </tbody>
+</table>

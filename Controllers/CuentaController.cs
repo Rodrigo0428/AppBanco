@@ -28,6 +28,7 @@ namespace AppBanco.Controllers
         {
             return View();
         }
+        
 
         [HttpPost]
         public IActionResult EnviarMensaje(Cuenta objcontato)
@@ -43,6 +44,11 @@ namespace AppBanco.Controllers
             ViewData["Message"] = "Se registro el contacto";
             return View("Index");
         }
+        public IActionResult ListarCuentas()
+{
+    var cuentas = _context.Datacuenta.ToList(); // Asegúrate de que la entidad DbSet se llame "Cuentas"
+    return View(cuentas);
+}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
